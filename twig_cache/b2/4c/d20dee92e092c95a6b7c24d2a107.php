@@ -23,6 +23,7 @@ class __TwigTemplate_b24cd20dee92e092c95a6b7c24d2a107 extends Twig_Template
 <title>ICLT Email Listener</title>
 
 <link rel=\"stylesheet\" href=\"css/themes/iclt/iclt.min.css\">
+<link rel=\"stylesheet\" href=\"css/iclt.css\">
 <link rel=\"stylesheet\" href=\"http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css\">
 <script src=\"http://code.jquery.com/jquery-1.7.1.min.js\"></script>
 <script src=\"http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js\"></script>
@@ -41,7 +42,7 @@ class __TwigTemplate_b24cd20dee92e092c95a6b7c24d2a107 extends Twig_Template
 \t\t<p>Hello world</p>\t\t
 \t</div><!-- /content -->
 \t
-\t<div data-role=\"footer\">
+\t<div id=\"footer\">
 \t\t<p>&copy; Paul Sheean 2012</p>
 \t</div><!-- /footer -->
 
