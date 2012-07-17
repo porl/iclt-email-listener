@@ -25,8 +25,9 @@
 	</div><!-- /content -->
 
 	<select>
-		<option value="paul.sheean">Paul Sheean</option>
-		<option value="aaron.toomey">Aaron Toomey</option>
+		{% for fieldTech in fieldTechs %}
+		<option value="{{ fieldTech.id }}">{{ fieldTech.name }}</option>
+		{% endfor %}
 	</select>
 
 	

@@ -12,6 +12,17 @@ $twig = new Twig_Environment($loader, array(
 
 $twigVars = array();
 
+$twigVars["fieldTechs"] = array(
+	array(
+		"id" => "paul.sheean",
+		"name" => "Paul Sheean",
+	),
+	array(
+		"id" => "aaron.toomey",
+		"name" => "Aaron Toomey",
+	),
+);
+
 //validate form if data present
 
 

@@ -43,9 +43,27 @@ class __TwigTemplate_b24cd20dee92e092c95a6b7c24d2a107 extends Twig_Template
 \t</div><!-- /content -->
 
 \t<select>
-\t\t<option value=\"paul.sheean\">Paul Sheean</option>
-\t\t<option value=\"aaron.toomey\">Aaron Toomey</option>
-\t</select>
+\t\t";
+        // line 28
+        if (isset($context["fieldTechs"])) { $_fieldTechs_ = $context["fieldTechs"]; } else { $_fieldTechs_ = null; }
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($_fieldTechs_);
+        foreach ($context['_seq'] as $context["_key"] => $context["fieldTech"]) {
+            // line 29
+            echo "\t\t<option value=\"";
+            if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
+            echo twig_escape_filter($this->env, $this->getAttribute($_fieldTech_, "id"), "html", null, true);
+            echo "\">";
+            if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
+            echo twig_escape_filter($this->env, $this->getAttribute($_fieldTech_, "name"), "html", null, true);
+            echo "</option>
+\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['fieldTech'], $context['_parent'], $context['loop']);
+        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        // line 31
+        echo "\t</select>
 
 \t
 \t<div id=\"footer\">
@@ -64,8 +82,13 @@ class __TwigTemplate_b24cd20dee92e092c95a6b7c24d2a107 extends Twig_Template
         return "layout.html";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  17 => 1,);
+        return array (  64 => 31,  51 => 29,  46 => 28,  17 => 1,);
     }
 }
