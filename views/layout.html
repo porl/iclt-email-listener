@@ -28,10 +28,6 @@
 {% endfor %}
 	</select>
 
-	<select id="ticketService">
-		<option value="">Select Service</option>
-	</select>
-
 	<div id="ticketType" data-role="fieldcontain">
 		<fieldset data-role="controlgroup" data-type="horizontal" >
 			<input type="radio" name="type" id="typeFailure" value="typeFailure" checked="checked">
@@ -41,6 +37,10 @@
 			<label for="typeRequest">Request</label>
 		</fieldset>
 	</div>
+
+	<select id="ticketService">
+		<option value="">Select Service</option>
+	</select>
 	
 	<div id="footer">
 		<p>&copy; Paul Sheean 2012</p>
