@@ -11,6 +11,18 @@
 
 </head>
 <body>
-<p>blahblah</p>
+
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>ICLT Email Listener</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>Hello world</p>		
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
 </body>
 </html>
