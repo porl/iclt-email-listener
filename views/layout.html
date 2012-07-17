@@ -4,11 +4,13 @@
 <meta lang="en">
 <title>ICLT Email Listener</title>
 
-<link rel="stylesheet" href="css/iclt.css">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css">
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 <meta name="viewport" content="target-densitydpi=medium-dpi, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="css/iclt.css">
+<script src="js/iclt.js"></script>
 
 </head>
 <body>
@@ -20,15 +22,29 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		<p>Hello world</p>		
+		<p>Hello world</p>
 	</div><!-- /content -->
 
-	<select>
+	<select id="ticketFieldTech">
+		<option value="">Select Field Technician</option>
 {% for fieldTech in fieldTechs %}
 		<option value="{{ fieldTech.id }}">{{ fieldTech.name }}</option>
 {% endfor %}
 	</select>
 
+	<select id="ticketService">
+		<option value="">Select Service</option>
+	</select>
+
+	<div id="ticketType" data-role="fieldcontain">
+		<fieldset data-role="controlgroup" data-type="horizontal" >
+			<input type="radio" name="type" id="typeFailure" value="typeFailure" checked="checked">
+			<label for="typeFailure">Failure</label>
+
+			<input type="radio" name="type" id="typeRequest" value="typeRequest">
+			<label for="typeRequest">Request</label>
+		</fieldset>
+	</div>
 	
 	<div id="footer">
 		<p>&copy; Paul Sheean 2012</p>
