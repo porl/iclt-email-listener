@@ -1,5 +1,6 @@
 <?php
 
+
 require_once 'Twig/Autoloader.php';
 Twig_Autoloader::register();
 
@@ -8,8 +9,17 @@ $twig = new Twig_Environment($loader, array(
     'cache' => 'twig_cache',
 ));
 
-$vars = array("foo" => "bar");
 
 
 
-echo $twig->render("layout.html", $vars);
+
+
+
+
+
+//render default form
+$twigVars = array();
+
+
+
+echo $twig->render("layout.html", $twigVars);
