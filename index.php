@@ -1,29 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta lang="en">
-<title>ICLT Email Listener</title>
+<?php
 
-<link rel="stylesheet" href="css/themes/iclt/iclt.min.css">
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css">
-<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
-<meta name="viewport" content="target-densitydpi=medium-dpi, initial-scale=1, maximum-scale=1">
+require_once 'Twig/Autoloader.php';
+Twig_Autoloader::register();
 
-</head>
-<body>
+$loader = new Twig_Loader_Filesystem('views');
+$twig = new Twig_Environment($loader, array(
+    'cache' => 'twig_cache',
+));
 
-<div data-role="page">
+$vars = array("foo" => "bar");
 
-	<div data-role="header">
-		<h1>ICLT Email Listener</h1>
-	</div><!-- /header -->
 
-	<div data-role="content">	
-		<p>Hello world</p>		
-	</div><!-- /content -->
 
-</div><!-- /page -->
-
-</body>
-</html>
+echo $twig->render("layout.html", $vars);
