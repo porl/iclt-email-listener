@@ -40,11 +40,16 @@ class __TwigTemplate_b24cd20dee92e092c95a6b7c24d2a107 extends Twig_Template
 \t<div data-role=\"content\">\t
 \t\t<p>Hello world</p>\t\t
 \t</div><!-- /content -->
+\t
+\t<div data-role=\"footer\">
+\t\t<p>&copy; Paul Sheean 2012</p>
+\t</div><!-- /footer -->
 
 </div><!-- /page -->
 
 </body>
-</html>";
+</html>
+";
     }
 
     public function getTemplateName()
