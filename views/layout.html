@@ -24,7 +24,7 @@
 
 <div data-role="collapsible-set">
 
-	<div data-role="collapsible" data-collapsed="false">
+	<div id="fieldTechCollapsible" data-role="collapsible" data-collapsed="false">
 		<h3>Field Technician</h3>
 		<fieldset data-role="controlgroup" id="fieldTechList">
 {% for fieldTech in data.fieldTechs %}
@@ -34,7 +34,7 @@
 		</fieldset>
 	</div><!-- /collapsible -->
 	
-	<div data-role="collapsible">
+	<div id="ticketTypeCollapsible" data-role="collapsible">
 	<h3>Ticket Type</h3>
 		<fieldset data-role="controlgroup" id="ticketTypeList">
 			<input type="radio" name="ticketType" id="typeFailure" value="typeFailure" class="sectionOption">
@@ -45,7 +45,7 @@
 		</fieldset>
 	</div><!-- /collapsible -->
 	
-	<div data-role="collapsible">
+	<div id="serviceCollapsible" data-role="collapsible">
 	<h3>Service</h3>
 	<fieldset data-role="controlgroup" id="serviceList">
 {% for service in data.services %}
@@ -53,9 +53,10 @@
 		<input type="radio" name="service" id="service_{{ serviceId }}" value="{{ service.id }}" class="sectionOption">
 		<label for="service_{{ serviceId }}">{{ service.name }}</label>
 {% endfor %}
-		</fieldset>
+	</fieldset>
 	</div><!-- /collapsible -->
-	<div data-role="collapsible">
+	
+	<div id="categoryCollapsible" data-role="collapsible">
 	<h3>Category</h3>
 	<fieldset data-role="controlgroup" id="categoryList">
 {% for service in data.services %}
@@ -66,7 +67,7 @@
 		<label for="category_{{ serviceId }}_{{ categoryId }}">{{ service.name }} - {{ category.name }}</label>
 {% endfor %}
 {% endfor %}
-		</fieldset>
+	</fieldset>
 
 
 

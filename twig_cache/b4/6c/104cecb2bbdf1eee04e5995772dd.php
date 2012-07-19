@@ -42,7 +42,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 
 <div data-role=\"collapsible-set\">
 
-\t<div data-role=\"collapsible\" data-collapsed=\"false\">
+\t<div id=\"fieldTechCollapsible\" data-role=\"collapsible\" data-collapsed=\"false\">
 \t\t<h3>Field Technician</h3>
 \t\t<fieldset data-role=\"controlgroup\" id=\"fieldTechList\">
 ";
@@ -76,7 +76,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         echo "\t\t</fieldset>
 \t</div><!-- /collapsible -->
 \t
-\t<div data-role=\"collapsible\">
+\t<div id=\"ticketTypeCollapsible\" data-role=\"collapsible\">
 \t<h3>Ticket Type</h3>
 \t\t<fieldset data-role=\"controlgroup\" id=\"ticketTypeList\">
 \t\t\t<input type=\"radio\" name=\"ticketType\" id=\"typeFailure\" value=\"typeFailure\" class=\"sectionOption\">
@@ -87,7 +87,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 \t\t</fieldset>
 \t</div><!-- /collapsible -->
 \t
-\t<div data-role=\"collapsible\">
+\t<div id=\"serviceCollapsible\" data-role=\"collapsible\">
 \t<h3>Service</h3>
 \t<fieldset data-role=\"controlgroup\" id=\"serviceList\">
 ";
@@ -121,29 +121,30 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['service'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
         // line 56
-        echo "\t\t</fieldset>
+        echo "\t</fieldset>
 \t</div><!-- /collapsible -->
-\t<div data-role=\"collapsible\">
+\t
+\t<div id=\"categoryCollapsible\" data-role=\"collapsible\">
 \t<h3>Category</h3>
 \t<fieldset data-role=\"controlgroup\" id=\"categoryList\">
 ";
-        // line 61
+        // line 62
         if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($_data_, "services"));
         foreach ($context['_seq'] as $context["_key"] => $context["service"]) {
-            // line 62
+            // line 63
             if (isset($context["service"])) { $_service_ = $context["service"]; } else { $_service_ = null; }
             $context["serviceId"] = strtr(twig_lower_filter($this->env, $this->getAttribute($_service_, "name")), array(" " => "."));
-            // line 63
+            // line 64
             if (isset($context["service"])) { $_service_ = $context["service"]; } else { $_service_ = null; }
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable(twig_sort_filter($this->getAttribute($_service_, "categories")));
             foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-                // line 64
+                // line 65
                 if (isset($context["category"])) { $_category_ = $context["category"]; } else { $_category_ = null; }
                 $context["categoryId"] = strtr(twig_lower_filter($this->env, $this->getAttribute($_category_, "name")), array(" " => "."));
-                // line 65
+                // line 66
                 echo "\t\t<input type=\"radio\" name=\"category\" id=\"category_";
                 if (isset($context["serviceId"])) { $_serviceId_ = $context["serviceId"]; } else { $_serviceId_ = null; }
                 echo twig_escape_filter($this->env, $_serviceId_, "html", null, true);
@@ -155,7 +156,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
                 echo twig_escape_filter($this->env, $_categoryId_, "html", null, true);
                 echo "\" class=\"sectionOption\">
 \t\t<label for=\"category_";
-                // line 66
+                // line 67
                 if (isset($context["serviceId"])) { $_serviceId_ = $context["serviceId"]; } else { $_serviceId_ = null; }
                 echo twig_escape_filter($this->env, $_serviceId_, "html", null, true);
                 echo "_";
@@ -177,8 +178,8 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['service'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 69
-        echo "\t\t</fieldset>
+        // line 70
+        echo "\t</fieldset>
 
 
 
@@ -220,6 +221,6 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  179 => 69,  157 => 66,  145 => 65,  142 => 64,  137 => 63,  134 => 62,  129 => 61,  122 => 56,  110 => 54,  101 => 53,  98 => 52,  93 => 51,  74 => 34,  62 => 32,  53 => 31,  48 => 30,  17 => 1,);
+        return array (  180 => 70,  158 => 67,  146 => 66,  143 => 65,  138 => 64,  135 => 63,  130 => 62,  122 => 56,  110 => 54,  101 => 53,  98 => 52,  93 => 51,  74 => 34,  62 => 32,  53 => 31,  48 => 30,  17 => 1,);
     }
 }
