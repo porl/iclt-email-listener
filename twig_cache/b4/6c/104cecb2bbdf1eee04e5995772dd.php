@@ -204,14 +204,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         // line 69
         echo "\t</fieldset>
 
-
-
-
 \t</div><!-- /collapsible -->
-\t
-\t
-\t
-\t
 \t
 </div><!-- /collapsible-set -->
 
