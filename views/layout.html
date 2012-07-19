@@ -21,26 +21,41 @@
 		<h1>ICLT Email Listener</h1>
 	</div><!-- /header -->
 
-	<select id="ticketFieldTech">
-		<option value="">Select Field Technician</option>
-{% for fieldTech in fieldTechs %}
-		<option value="{{ fieldTech.id }}">{{ fieldTech.name }}</option>
-{% endfor %}
-	</select>
 
-	<div id="ticketType" data-role="fieldcontain">
-		<fieldset data-role="controlgroup" data-type="horizontal" >
+<div data-role="collapsible-set">
+
+	<div data-role="collapsible" data-collapsed="false">
+		<h3>Field Technician</h3>
+		<div id="fieldTechList">
+{% for fieldTech in fieldTechs %}
+			<input type="radio" name="fieldTech" id="fieldTech_{{ fieldTech.id }}" value="{{ fieldTech.id }}">
+			<label for="fieldTech_{{ fieldTech.id }}">{{ fieldTech.name }}</label>
+{% endfor %}
+		</div>
+	</div>
+	
+	<div data-role="collapsible">
+	<h3>Ticket Type</h3>
 			<input type="radio" name="type" id="typeFailure" value="typeFailure" checked="checked">
 			<label for="typeFailure">Failure</label>
 
 			<input type="radio" name="type" id="typeRequest" value="typeRequest">
 			<label for="typeRequest">Request</label>
-		</fieldset>
 	</div>
+	
+	<div data-role="collapsible">
+	<h3>Service</h3>
 
-	<select id="ticketService">
-		<option value="">Select Service</option>
-	</select>
+
+	</div>
+	
+</div>
+
+
+
+
+
+
 	
 	<div id="footer">
 		<p>&copy; Paul Sheean 2012</p>

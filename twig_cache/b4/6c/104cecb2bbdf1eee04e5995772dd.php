@@ -39,43 +39,65 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 \t\t<h1>ICLT Email Listener</h1>
 \t</div><!-- /header -->
 
-\t<select id=\"ticketFieldTech\">
-\t\t<option value=\"\">Select Field Technician</option>
+
+<div data-role=\"collapsible-set\">
+
+\t<div data-role=\"collapsible\" data-collapsed=\"false\">
+\t\t<h3>Field Technician</h3>
+\t\t<div id=\"fieldTechList\">
 ";
-        // line 26
+        // line 30
         if (isset($context["fieldTechs"])) { $_fieldTechs_ = $context["fieldTechs"]; } else { $_fieldTechs_ = null; }
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($_fieldTechs_);
         foreach ($context['_seq'] as $context["_key"] => $context["fieldTech"]) {
-            // line 27
-            echo "\t\t<option value=\"";
+            // line 31
+            echo "\t\t\t<input type=\"radio\" name=\"fieldTech\" id=\"fieldTech_";
+            if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
+            echo twig_escape_filter($this->env, $this->getAttribute($_fieldTech_, "id"), "html", null, true);
+            echo "\" value=\"";
+            if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
+            echo twig_escape_filter($this->env, $this->getAttribute($_fieldTech_, "id"), "html", null, true);
+            echo "\">
+\t\t\t<label for=\"fieldTech_";
+            // line 32
             if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_fieldTech_, "id"), "html", null, true);
             echo "\">";
             if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_fieldTech_, "name"), "html", null, true);
-            echo "</option>
+            echo "</label>
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['fieldTech'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 29
-        echo "\t</select>
-
-\t<div id=\"ticketType\" data-role=\"fieldcontain\">
-\t\t<fieldset data-role=\"controlgroup\" data-type=\"horizontal\" >
+        // line 34
+        echo "\t\t</div>
+\t</div>
+\t
+\t<div data-role=\"collapsible\">
+\t<h3>Ticket Type</h3>
 \t\t\t<input type=\"radio\" name=\"type\" id=\"typeFailure\" value=\"typeFailure\" checked=\"checked\">
 \t\t\t<label for=\"typeFailure\">Failure</label>
 
 \t\t\t<input type=\"radio\" name=\"type\" id=\"typeRequest\" value=\"typeRequest\">
 \t\t\t<label for=\"typeRequest\">Request</label>
-\t\t</fieldset>
 \t</div>
+\t
+\t<div data-role=\"collapsible\">
+\t<h3>Service</h3>
 
-\t<select id=\"ticketService\">
-\t\t<option value=\"\">Select Service</option>
-\t</select>
+
+\t</div>
+\t
+</div>
+
+
+
+
+
+
 \t
 \t<div id=\"footer\">
 \t\t<p>&copy; Paul Sheean 2012</p>
@@ -100,6 +122,6 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  62 => 29,  49 => 27,  44 => 26,  17 => 1,);
+        return array (  74 => 34,  62 => 32,  53 => 31,  48 => 30,  17 => 1,);
     }
 }
