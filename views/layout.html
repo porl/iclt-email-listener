@@ -26,26 +26,34 @@
 
 	<div data-role="collapsible" data-collapsed="false">
 		<h3>Field Technician</h3>
-		<div id="fieldTechList">
-{% for fieldTech in fieldTechs %}
+		<fieldset data-role="controlgroup" id="fieldTechList">
+{% for fieldTech in data.fieldTechs %}
 			<input type="radio" name="fieldTech" id="fieldTech_{{ fieldTech.id }}" value="{{ fieldTech.id }}">
 			<label for="fieldTech_{{ fieldTech.id }}">{{ fieldTech.name }}</label>
 {% endfor %}
-		</div>
+		</fieldset>
 	</div>
 	
 	<div data-role="collapsible">
 	<h3>Ticket Type</h3>
-			<input type="radio" name="type" id="typeFailure" value="typeFailure" checked="checked">
+		<fieldset data-role="controlgroup" id="ticketTypeList">
+			<input type="radio" name="ticketType" id="typeFailure" value="typeFailure" checked="checked">
 			<label for="typeFailure">Failure</label>
 
-			<input type="radio" name="type" id="typeRequest" value="typeRequest">
+			<input type="radio" name="ticketType" id="typeRequest" value="typeRequest">
 			<label for="typeRequest">Request</label>
+		</fieldset>
 	</div>
 	
 	<div data-role="collapsible">
 	<h3>Service</h3>
-
+	<fieldset data-role="controlgroup" id="serviceList">
+{% for service in data.services %}
+	{% set serviceId = service.name|lower|replace({" ":"."}) %}
+		<input type="radio" name="service" id="service_{{ serviceId }}" value="{{ service.id }}">
+		<label for="service_{{ serviceId }}">{{ service.name }}</label>
+{% endfor %}
+		</fieldset>
 
 	</div>
 	

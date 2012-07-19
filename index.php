@@ -2,17 +2,9 @@
 
 
 require_once("inc/twig.php");
+require_once("inc/data.php");
 
-$twigVars["fieldTechs"] = array(
-	array(
-		"id" => "paul.sheean",
-		"name" => "Paul Sheean",
-	),
-	array(
-		"id" => "aaron.toomey",
-		"name" => "Aaron Toomey",
-	),
-);
+$twigVars["data"] = $data;
 
 //validate form if data present
 
