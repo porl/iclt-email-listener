@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<div data-role="page">
+<div data-role="page" data-theme="a" data-content-theme="a">
 
 	<div data-role="header" data-position="fixed">
 		<h1>ICLT Email Listener</h1>
@@ -24,7 +24,7 @@
 
 	<div data-role="collapsible-set">
 
-		<div id="fieldTechCollapsible" data-role="collapsible" data-collapsed="false">
+		<div id="fieldTechCollapsible" data-role="collapsible" data-collapsed="false" data-iconpos="right">
 			<h3>Field Technician</h3>
 			<fieldset data-role="controlgroup" id="fieldTechList">
 {% for fieldTech in data.fieldTechs %}
@@ -34,7 +34,7 @@
 			</fieldset>
 		</div><!-- /collapsible -->
 	
-		<div id="ticketTypeCollapsible" data-role="collapsible">
+		<div id="ticketTypeCollapsible" data-role="collapsible" data-iconpos="right">
 			<h3>Ticket Type</h3>
 			<fieldset data-role="controlgroup" id="ticketTypeList">
 {% for type in data.types %}
@@ -44,7 +44,7 @@
 			</fieldset>
 		</div><!-- /collapsible -->
 	
-		<div id="serviceCollapsible" data-role="collapsible">
+		<div id="serviceCollapsible" data-role="collapsible" data-iconpos="right">
 			<h3>Service</h3>
 			<fieldset data-role="controlgroup" id="serviceList">
 {% for service in data.services %}
@@ -55,7 +55,7 @@
 			</fieldset>
 		</div><!-- /collapsible -->
 	
-		<div id="categoryCollapsible" data-role="collapsible">
+		<div id="categoryCollapsible" data-role="collapsible" data-iconpos="right">
 			<h3>Category</h3>
 			<fieldset data-role="controlgroup" id="categoryList">
 {% for service in data.services %}
@@ -71,7 +71,7 @@
 	
 	</div><!-- /collapsible-set -->
 
-	<div data-role="footer" id="footer" data-position="fixed" data-theme="c">
+	<div data-role="footer" id="footer" data-position="fixed">
 		<p>&copy; Paul Sheean 2012</p>
 	</div><!-- /footer -->
 
