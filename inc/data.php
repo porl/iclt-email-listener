@@ -1,5 +1,6 @@
 <?php
 $data = array();
+$data["types"] = array("Failure","Request");
 $data["services"] = array (
     array(
         "name" => "Account Services",
