@@ -28,43 +28,63 @@
 		<h3>Field Technician</h3>
 		<fieldset data-role="controlgroup" id="fieldTechList">
 {% for fieldTech in data.fieldTechs %}
-			<input type="radio" name="fieldTech" id="fieldTech_{{ fieldTech.id }}" value="{{ fieldTech.id }}">
+			<input type="radio" name="fieldTech" id="fieldTech_{{ fieldTech.id }}" value="{{ fieldTech.id }}" class="sectionOption">
 			<label for="fieldTech_{{ fieldTech.id }}">{{ fieldTech.name }}</label>
 {% endfor %}
 		</fieldset>
-	</div>
+	</div><!-- /collapsible -->
 	
 	<div data-role="collapsible">
 	<h3>Ticket Type</h3>
 		<fieldset data-role="controlgroup" id="ticketTypeList">
-			<input type="radio" name="ticketType" id="typeFailure" value="typeFailure" checked="checked">
+			<input type="radio" name="ticketType" id="typeFailure" value="typeFailure" class="sectionOption">
 			<label for="typeFailure">Failure</label>
 
-			<input type="radio" name="ticketType" id="typeRequest" value="typeRequest">
+			<input type="radio" name="ticketType" id="typeRequest" value="typeRequest" class="sectionOption">
 			<label for="typeRequest">Request</label>
 		</fieldset>
-	</div>
+	</div><!-- /collapsible -->
 	
 	<div data-role="collapsible">
 	<h3>Service</h3>
 	<fieldset data-role="controlgroup" id="serviceList">
 {% for service in data.services %}
-	{% set serviceId = service.name|lower|replace({" ":"."}) %}
-		<input type="radio" name="service" id="service_{{ serviceId }}" value="{{ service.id }}">
+{% set serviceId = service.name|lower|replace({" ":"."}) %}
+		<input type="radio" name="service" id="service_{{ serviceId }}" value="{{ service.id }}" class="sectionOption">
 		<label for="service_{{ serviceId }}">{{ service.name }}</label>
 {% endfor %}
 		</fieldset>
+	</div><!-- /collapsible -->
+	<div data-role="collapsible">
+	<h3>Category</h3>
+	<fieldset data-role="controlgroup" id="categoryList">
+{% for service in data.services %}
+{% set serviceId = service.name|lower|replace({" ":"."}) %}
+{% for category in service.categories|sort %}
+{% set categoryId = category.name|lower|replace({" ":"."}) %}
+		<input type="radio" name="category" id="category_{{ serviceId }}_{{ categoryId }}" value="{{ categoryId }}" class="sectionOption">
+		<label for="category_{{ serviceId }}_{{ categoryId }}">{{ service.name }} - {{ category.name }}</label>
+{% endfor %}
+{% endfor %}
+		</fieldset>
 
-	</div>
+
+
+
+	</div><!-- /collapsible -->
 	
-</div>
-
-
-
-
-
-
 	
+	
+	
+	
+</div><!-- /collapsible-set -->
+
+
+
+
+
+
+	<div class="clearfix"></div>
 	<div id="footer">
 		<p>&copy; Paul Sheean 2012</p>
 	</div><!-- /footer -->

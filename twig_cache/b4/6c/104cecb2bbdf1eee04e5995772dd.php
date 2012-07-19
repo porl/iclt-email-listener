@@ -58,7 +58,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
             echo "\" value=\"";
             if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_fieldTech_, "id"), "html", null, true);
-            echo "\">
+            echo "\" class=\"sectionOption\">
 \t\t\t<label for=\"fieldTech_";
             // line 32
             if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
@@ -74,18 +74,18 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
         // line 34
         echo "\t\t</fieldset>
-\t</div>
+\t</div><!-- /collapsible -->
 \t
 \t<div data-role=\"collapsible\">
 \t<h3>Ticket Type</h3>
 \t\t<fieldset data-role=\"controlgroup\" id=\"ticketTypeList\">
-\t\t\t<input type=\"radio\" name=\"ticketType\" id=\"typeFailure\" value=\"typeFailure\" checked=\"checked\">
+\t\t\t<input type=\"radio\" name=\"ticketType\" id=\"typeFailure\" value=\"typeFailure\" class=\"sectionOption\">
 \t\t\t<label for=\"typeFailure\">Failure</label>
 
-\t\t\t<input type=\"radio\" name=\"ticketType\" id=\"typeRequest\" value=\"typeRequest\">
+\t\t\t<input type=\"radio\" name=\"ticketType\" id=\"typeRequest\" value=\"typeRequest\" class=\"sectionOption\">
 \t\t\t<label for=\"typeRequest\">Request</label>
 \t\t</fieldset>
-\t</div>
+\t</div><!-- /collapsible -->
 \t
 \t<div data-role=\"collapsible\">
 \t<h3>Service</h3>
@@ -97,7 +97,6 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($_data_, "services"));
         foreach ($context['_seq'] as $context["_key"] => $context["service"]) {
             // line 52
-            echo "\t";
             if (isset($context["service"])) { $_service_ = $context["service"]; } else { $_service_ = null; }
             $context["serviceId"] = strtr(twig_lower_filter($this->env, $this->getAttribute($_service_, "name")), array(" " => "."));
             // line 53
@@ -107,7 +106,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
             echo "\" value=\"";
             if (isset($context["service"])) { $_service_ = $context["service"]; } else { $_service_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_service_, "id"), "html", null, true);
-            echo "\">
+            echo "\" class=\"sectionOption\">
 \t\t<label for=\"service_";
             // line 54
             if (isset($context["serviceId"])) { $_serviceId_ = $context["serviceId"]; } else { $_serviceId_ = null; }
@@ -123,17 +122,81 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
         // line 56
         echo "\t\t</fieldset>
+\t</div><!-- /collapsible -->
+\t<div data-role=\"collapsible\">
+\t<h3>Category</h3>
+\t<fieldset data-role=\"controlgroup\" id=\"categoryList\">
+";
+        // line 61
+        if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($_data_, "services"));
+        foreach ($context['_seq'] as $context["_key"] => $context["service"]) {
+            // line 62
+            if (isset($context["service"])) { $_service_ = $context["service"]; } else { $_service_ = null; }
+            $context["serviceId"] = strtr(twig_lower_filter($this->env, $this->getAttribute($_service_, "name")), array(" " => "."));
+            // line 63
+            if (isset($context["service"])) { $_service_ = $context["service"]; } else { $_service_ = null; }
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable(twig_sort_filter($this->getAttribute($_service_, "categories")));
+            foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
+                // line 64
+                if (isset($context["category"])) { $_category_ = $context["category"]; } else { $_category_ = null; }
+                $context["categoryId"] = strtr(twig_lower_filter($this->env, $this->getAttribute($_category_, "name")), array(" " => "."));
+                // line 65
+                echo "\t\t<input type=\"radio\" name=\"category\" id=\"category_";
+                if (isset($context["serviceId"])) { $_serviceId_ = $context["serviceId"]; } else { $_serviceId_ = null; }
+                echo twig_escape_filter($this->env, $_serviceId_, "html", null, true);
+                echo "_";
+                if (isset($context["categoryId"])) { $_categoryId_ = $context["categoryId"]; } else { $_categoryId_ = null; }
+                echo twig_escape_filter($this->env, $_categoryId_, "html", null, true);
+                echo "\" value=\"";
+                if (isset($context["categoryId"])) { $_categoryId_ = $context["categoryId"]; } else { $_categoryId_ = null; }
+                echo twig_escape_filter($this->env, $_categoryId_, "html", null, true);
+                echo "\" class=\"sectionOption\">
+\t\t<label for=\"category_";
+                // line 66
+                if (isset($context["serviceId"])) { $_serviceId_ = $context["serviceId"]; } else { $_serviceId_ = null; }
+                echo twig_escape_filter($this->env, $_serviceId_, "html", null, true);
+                echo "_";
+                if (isset($context["categoryId"])) { $_categoryId_ = $context["categoryId"]; } else { $_categoryId_ = null; }
+                echo twig_escape_filter($this->env, $_categoryId_, "html", null, true);
+                echo "\">";
+                if (isset($context["service"])) { $_service_ = $context["service"]; } else { $_service_ = null; }
+                echo twig_escape_filter($this->env, $this->getAttribute($_service_, "name"), "html", null, true);
+                echo " - ";
+                if (isset($context["category"])) { $_category_ = $context["category"]; } else { $_category_ = null; }
+                echo twig_escape_filter($this->env, $this->getAttribute($_category_, "name"), "html", null, true);
+                echo "</label>
+";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
+            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['service'], $context['_parent'], $context['loop']);
+        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        // line 69
+        echo "\t\t</fieldset>
 
-\t</div>
+
+
+
+\t</div><!-- /collapsible -->
 \t
-</div>
-
-
-
-
-
-
 \t
+\t
+\t
+\t
+</div><!-- /collapsible-set -->
+
+
+
+
+
+
+\t<div class=\"clearfix\"></div>
 \t<div id=\"footer\">
 \t\t<p>&copy; Paul Sheean 2012</p>
 \t</div><!-- /footer -->
@@ -157,6 +220,6 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  123 => 56,  111 => 54,  102 => 53,  98 => 52,  93 => 51,  74 => 34,  62 => 32,  53 => 31,  48 => 30,  17 => 1,);
+        return array (  179 => 69,  157 => 66,  145 => 65,  142 => 64,  137 => 63,  134 => 62,  129 => 61,  122 => 56,  110 => 54,  101 => 53,  98 => 52,  93 => 51,  74 => 34,  62 => 32,  53 => 31,  48 => 30,  17 => 1,);
     }
 }
