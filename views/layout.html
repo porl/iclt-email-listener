@@ -29,7 +29,7 @@
 			<fieldset data-role="controlgroup" id="fieldTechList">
 {% for fieldTech in data.fieldTechs %}
 				<input type="radio" name="fieldTech" id="fieldTech_{{ fieldTech.id }}" value="{{ fieldTech.id }}" class="sectionOption">
-				<label for="fieldTech_{{ fieldTech.id }}">{{ fieldTech.name }}</label>
+					<label for="fieldTech_{{ fieldTech.id }}">{{ fieldTech.name }}</label>
 {% endfor %}
 			</fieldset>
 		</div><!-- /collapsible -->
@@ -39,7 +39,7 @@
 			<fieldset data-role="controlgroup" id="ticketTypeList">
 {% for type in data.types %}
 				<input type="radio" name="ticketType" id="type{{ type }}" value="{{ type }}" class="sectionOption">
-				<label for="type{{ type }}">{{ type }}</label>
+					<label for="type{{ type }}">{{ type }}</label>
 {% endfor %}
 			</fieldset>
 		</div><!-- /collapsible -->
@@ -50,7 +50,7 @@
 {% for service in data.services %}
 {% set serviceId = service.name|lower|replace({" ":"."}) %}
 				<input type="radio" name="service" id="service_{{ serviceId }}" value="{{ service.name }}" class="sectionOption">
-				<label for="service_{{ serviceId }}">{{ service.name }}</label>
+					<label for="service_{{ serviceId }}">{{ service.name }}</label>
 {% endfor %}
 			</fieldset>
 		</div><!-- /collapsible -->
@@ -63,7 +63,7 @@
 {% for category in service.categories|sort %}
 {% set categoryId = category.name|lower|replace({" ":"."}) %}
 				<input type="radio" name="category" id="category_{{ serviceId }}_{{ categoryId }}" value="{{ category.name }}" class="sectionOption">
-				<label for="category_{{ serviceId }}_{{ categoryId }}">{{ service.name }} - {{ category.name }}</label>
+					<label for="category_{{ serviceId }}_{{ categoryId }}">{{ service.name }} - {{ category.name }}</label>
 {% endfor %}
 {% endfor %}
 			</fieldset>
