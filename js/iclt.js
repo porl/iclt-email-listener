@@ -17,13 +17,13 @@ $(function() {
 
 	//on radio selection, close current container and change header to match then open next section
 	
-	$('.sectionOption').parent('.ui-radio').click(radioClicked);
+	$('.sectionOption').click(radioClicked);
 
 
 	function radioClicked() {
 		console.log(this);
 		//get label text
-		var labelText = $(this).children('label').find('.ui-btn-text').text()
+		var labelText = $(this).siblings('label').find('.ui-btn-text').text()
 		
 		//find section header
 		var sectionBlock = $(this).parents('.ui-collapsible')
@@ -77,7 +77,7 @@ $(function() {
 		$('#serviceCollapsible').trigger('create');
 
 		//register click events
-		serviceList.find('.ui-radio').click(radioClicked);
+		serviceList.find('input').click(radioClicked);
 
 
 	});
