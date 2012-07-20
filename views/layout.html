@@ -28,7 +28,7 @@
 			<h3>Field Technician</h3>
 			<fieldset data-role="controlgroup" id="fieldTechList">
 {% for fieldTech in data.fieldTechs %}
-				<input type="radio" name="fieldTech" id="fieldTech_{{ fieldTech.id }}" value="{{ fieldTech.id }}" class="sectionOption">
+				<input type="radio" name="fieldTech" id="fieldTech_{{ fieldTech.id }}" value="{{ fieldTech.id }}" class="sectionOption fieldTechs">
 					<label for="fieldTech_{{ fieldTech.id }}">{{ fieldTech.name }}</label>
 {% endfor %}
 			</fieldset>
@@ -38,7 +38,7 @@
 			<h3>Ticket Type</h3>
 			<fieldset data-role="controlgroup" id="ticketTypeList">
 {% for type in data.types %}
-				<input type="radio" name="ticketType" id="type{{ type }}" value="{{ type }}" class="sectionOption">
+				<input type="radio" name="ticketType" id="type{{ type }}" value="{{ type }}" class="sectionOption types">
 					<label for="type{{ type }}">{{ type }}</label>
 {% endfor %}
 			</fieldset>
@@ -49,7 +49,7 @@
 			<fieldset data-role="controlgroup" id="serviceList">
 {% for service in data.services %}
 {% set serviceId = service.name|lower|replace({" ":"."}) %}
-				<input type="radio" name="service" id="service_{{ serviceId }}" value="{{ service.name }}" class="sectionOption">
+				<input type="radio" name="service" id="service_{{ serviceId }}" value="{{ service.name }}" class="sectionOption services">
 					<label for="service_{{ serviceId }}">{{ service.name }}</label>
 {% endfor %}
 			</fieldset>
@@ -62,7 +62,7 @@
 {% set serviceId = service.name|lower|replace({" ":"."}) %}
 {% for category in service.categories|sort %}
 {% set categoryId = category.name|lower|replace({" ":"."}) %}
-				<input type="radio" name="category" id="category_{{ serviceId }}_{{ categoryId }}" value="{{ category.name }}" class="sectionOption">
+				<input type="radio" name="category" id="category_{{ serviceId }}_{{ categoryId }}" value="{{ category.name }}" class="sectionOption categories">
 					<label for="category_{{ serviceId }}_{{ categoryId }}">{{ service.name }} - {{ category.name }}</label>
 {% endfor %}
 {% endfor %}

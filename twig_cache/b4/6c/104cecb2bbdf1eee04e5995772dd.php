@@ -33,7 +33,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 </head>
 <body>
 
-<div data-role=\"page\">
+<div data-role=\"page\" data-theme=\"a\" data-content-theme=\"a\">
 
 \t<div data-role=\"header\" data-position=\"fixed\">
 \t\t<h1>ICLT Email Listener</h1>
@@ -42,7 +42,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 
 \t<div data-role=\"collapsible-set\">
 
-\t\t<div id=\"fieldTechCollapsible\" data-role=\"collapsible\" data-collapsed=\"false\">
+\t\t<div id=\"fieldTechCollapsible\" data-role=\"collapsible\" data-collapsed=\"false\" data-iconpos=\"right\">
 \t\t\t<h3>Field Technician</h3>
 \t\t\t<fieldset data-role=\"controlgroup\" id=\"fieldTechList\">
 ";
@@ -58,8 +58,8 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
             echo "\" value=\"";
             if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_fieldTech_, "id"), "html", null, true);
-            echo "\" class=\"sectionOption\">
-\t\t\t\t<label for=\"fieldTech_";
+            echo "\" class=\"sectionOption fieldTechs\">
+\t\t\t\t\t<label for=\"fieldTech_";
             // line 32
             if (isset($context["fieldTech"])) { $_fieldTech_ = $context["fieldTech"]; } else { $_fieldTech_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_fieldTech_, "id"), "html", null, true);
@@ -76,7 +76,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         echo "\t\t\t</fieldset>
 \t\t</div><!-- /collapsible -->
 \t
-\t\t<div id=\"ticketTypeCollapsible\" data-role=\"collapsible\">
+\t\t<div id=\"ticketTypeCollapsible\" data-role=\"collapsible\" data-iconpos=\"right\">
 \t\t\t<h3>Ticket Type</h3>
 \t\t\t<fieldset data-role=\"controlgroup\" id=\"ticketTypeList\">
 ";
@@ -92,8 +92,8 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
             echo "\" value=\"";
             if (isset($context["type"])) { $_type_ = $context["type"]; } else { $_type_ = null; }
             echo twig_escape_filter($this->env, $_type_, "html", null, true);
-            echo "\" class=\"sectionOption\">
-\t\t\t\t<label for=\"type";
+            echo "\" class=\"sectionOption types\">
+\t\t\t\t\t<label for=\"type";
             // line 42
             if (isset($context["type"])) { $_type_ = $context["type"]; } else { $_type_ = null; }
             echo twig_escape_filter($this->env, $_type_, "html", null, true);
@@ -110,7 +110,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         echo "\t\t\t</fieldset>
 \t\t</div><!-- /collapsible -->
 \t
-\t\t<div id=\"serviceCollapsible\" data-role=\"collapsible\">
+\t\t<div id=\"serviceCollapsible\" data-role=\"collapsible\" data-iconpos=\"right\">
 \t\t\t<h3>Service</h3>
 \t\t\t<fieldset data-role=\"controlgroup\" id=\"serviceList\">
 ";
@@ -129,8 +129,8 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
             echo "\" value=\"";
             if (isset($context["service"])) { $_service_ = $context["service"]; } else { $_service_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_service_, "name"), "html", null, true);
-            echo "\" class=\"sectionOption\">
-\t\t\t\t<label for=\"service_";
+            echo "\" class=\"sectionOption services\">
+\t\t\t\t\t<label for=\"service_";
             // line 53
             if (isset($context["serviceId"])) { $_serviceId_ = $context["serviceId"]; } else { $_serviceId_ = null; }
             echo twig_escape_filter($this->env, $_serviceId_, "html", null, true);
@@ -147,7 +147,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
         echo "\t\t\t</fieldset>
 \t\t</div><!-- /collapsible -->
 \t
-\t\t<div id=\"categoryCollapsible\" data-role=\"collapsible\">
+\t\t<div id=\"categoryCollapsible\" data-role=\"collapsible\" data-iconpos=\"right\">
 \t\t\t<h3>Category</h3>
 \t\t\t<fieldset data-role=\"controlgroup\" id=\"categoryList\">
 ";
@@ -177,8 +177,8 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
                 echo "\" value=\"";
                 if (isset($context["category"])) { $_category_ = $context["category"]; } else { $_category_ = null; }
                 echo twig_escape_filter($this->env, $this->getAttribute($_category_, "name"), "html", null, true);
-                echo "\" class=\"sectionOption\">
-\t\t\t\t<label for=\"category_";
+                echo "\" class=\"sectionOption categories\">
+\t\t\t\t\t<label for=\"category_";
                 // line 66
                 if (isset($context["serviceId"])) { $_serviceId_ = $context["serviceId"]; } else { $_serviceId_ = null; }
                 echo twig_escape_filter($this->env, $_serviceId_, "html", null, true);
@@ -207,7 +207,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 \t
 \t</div><!-- /collapsible-set -->
 
-\t<div data-role=\"footer\" id=\"footer\" data-position=\"fixed\" data-theme=\"c\">
+\t<div data-role=\"footer\" id=\"footer\" data-position=\"fixed\">
 \t\t<p>&copy; Paul Sheean 2012</p>
 \t</div><!-- /footer -->
 

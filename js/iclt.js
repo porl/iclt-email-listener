@@ -23,6 +23,13 @@ $(function() {
 
 	//on ticket type selection, reload results for services
 	
+	$('.types').click(function(){
+		var type = $(this).attr('value');
+		
+		
+		
+	});
+	
 	//on service selection, reload results for categories (filter by ticket type)
 
 });
