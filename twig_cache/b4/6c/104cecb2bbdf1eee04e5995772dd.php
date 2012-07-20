@@ -33,7 +33,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 </head>
 <body>
 
-<div data-role=\"page\" data-theme=\"a\" data-content-theme=\"a\">
+<div data-role=\"page\" data-theme=\"c\" data-content-theme=\"c\">
 
 \t<div data-role=\"header\" data-position=\"fixed\">
 \t\t<h1>ICLT Email Listener</h1>
@@ -207,7 +207,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 \t
 \t</div><!-- /collapsible-set -->
 
-\t<div data-role=\"footer\" id=\"footer\" data-position=\"fixed\">
+\t<div data-role=\"footer\" id=\"footer\" data-position=\"fixed\" data-theme=\"c\">
 \t\t<p>&copy; Paul Sheean 2012</p>
 \t</div><!-- /footer -->
 

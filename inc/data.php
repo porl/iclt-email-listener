@@ -254,6 +254,8 @@ $data["services"] = array (
     ),
     array(
         "name" => "Printing Services",
+        "failure" => true,
+        "request" => true,
         "categories" => array(
             array(
                 "name" => "Configuration",
