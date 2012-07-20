@@ -48,12 +48,18 @@ $(function() {
 	$('.types').click(function(){
 		var serviceType = $(this).attr('value').toLowerCase(); //lowercase to match json data
 		
-		//reset services label
+		//reset services and categories labels
 		//find service section header
 		var sectionHeader = $('#serviceCollapsible').find('h3').find('.ui-btn-text')
 		var sectionHeaderStatus = sectionHeader.find('.ui-collapsible-heading-status');
 		//modify section header (and put back 'tooltip')
 		sectionHeader.text("Service").append(sectionHeaderStatus);
+		
+		//find service section header
+		var sectionHeader = $('#categoryCollapsible').find('h3').find('.ui-btn-text')
+		var sectionHeaderStatus = sectionHeader.find('.ui-collapsible-heading-status');
+		//modify section header (and put back 'tooltip')
+		sectionHeader.text("Category").append(sectionHeaderStatus);
 
 		//build services list
 		var serviceList = $('#serviceList .ui-controlgroup-controls');
@@ -62,7 +68,6 @@ $(function() {
 		
 		var serviceHTML = "";
 				
-	
 		for (serviceKey in data['services']) {
 			var service = data['services'][serviceKey];
 			if (service[serviceType] == true) {
@@ -78,7 +83,6 @@ $(function() {
 
 		//register click events
 		serviceList.find('input').click(radioClicked);
-
 
 	});
 	
