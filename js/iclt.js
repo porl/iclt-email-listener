@@ -53,7 +53,6 @@ $(function() {
 		//store current service (if any) so it can be reselected if applicable
 		var selectedService = $('#serviceList').find('input').filter(':checked').first(); //first() in case of something weird client-side
 		var selectedServiceId = selectedService.attr('id');
-		
 		//get selected type
 		var serviceType = $(this).attr('value').toLowerCase(); //lowercase to match json data
 		
@@ -79,7 +78,7 @@ $(function() {
 			var service = data['services'][serviceKey];
 			if (service[serviceType] == true) {
 				serviceName = service['name'];
-				serviceId = serviceName.toLowerCase().replace(" ","");
+				serviceId = serviceName.toLowerCase().replace(/ /g,"");
 				serviceList.append('<input type="radio" name="service" id="service_' + serviceId + '" value="' + serviceName + '" class="sectionOption services"> \
 					<label for="service_' + serviceId + '">' + serviceName + '</label>');
 			}
@@ -135,7 +134,7 @@ $(function() {
 					var category = service.categories[categoryKey];
 					if (category[serviceTypeId] == true) {
 						categoryName = category['name'];
-						categoryId = categoryName.toLowerCase().replace(" ","");
+						categoryId = categoryName.toLowerCase().replace(/ /g,"");
 						categoryList.append('<input type="radio" name="category" id="category_' + categoryId + '" value="' + categoryName + '" class="sectionOption categories"> \
 							<label for="category_' + categoryId + '">' + categoryName + '</label>');
 					}

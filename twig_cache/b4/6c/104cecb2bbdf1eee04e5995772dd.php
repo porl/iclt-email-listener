@@ -42,7 +42,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 
 \t<div data-role=\"collapsible-set\" id=\"collapsibles\">
 
-\t\t<div id=\"fieldTechCollapsible\" data-role=\"collapsible\" data-collapsed=\"false\" data-iconpos=\"right\" data-collapsed-icon=\"arrow-r\" data-expanded-icon=\"arrow-d\">
+\t\t<div id=\"fieldTechCollapsible\" data-role=\"collapsible\" data-collapsed=\"false\" data-iconpos=\"right\">
 \t\t\t<h3>Field Technician</h3>
 \t\t\t<fieldset data-role=\"controlgroup\" id=\"fieldTechList\">
 ";
