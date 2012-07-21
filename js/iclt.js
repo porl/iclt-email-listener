@@ -21,7 +21,6 @@ $(function() {
 
 
 	function radioClicked() {
-		console.log(this);
 		//get label text
 		var labelText = $(this).siblings('label').find('.ui-btn-text').text()
 		
@@ -46,6 +45,11 @@ $(function() {
 	//on ticket type selection, reload results for services
 	
 	$('.types').click(function(){
+		//store current service (if any) so it can be reselected if applicable
+		var selectedService = $('#serviceList').find('input').filter(':checked').first(); //first() in case of something weird client-side
+		var selectedServiceId = selectedService.attr('id');
+		
+		//get selected type
 		var serviceType = $(this).attr('value').toLowerCase(); //lowercase to match json data
 		
 		//reset services and categories labels
@@ -66,13 +70,11 @@ $(function() {
 		serviceList.children().remove();
 		
 		
-		var serviceHTML = "";
-				
 		for (serviceKey in data['services']) {
 			var service = data['services'][serviceKey];
 			if (service[serviceType] == true) {
 				serviceName = service['name'];
-				serviceId = serviceName.toLowerCase().replace(" ",".");
+				serviceId = serviceName.toLowerCase().replace(" ","");
 				serviceList.append('<input type="radio" name="service" id="service_' + serviceId + '" value="' + serviceName + '" class="sectionOption services"> \
 					<label for="service_' + serviceId + '">' + serviceName + '</label>');
 			}
@@ -83,6 +85,11 @@ $(function() {
 
 		//register click events
 		serviceList.find('input').click(radioClicked);
+
+		//if selectedService exists in new list, 'click' it.
+		if (selectedServiceId) {
+			$('#' + selectedServiceId).click();
+		}
 
 	});
 	
