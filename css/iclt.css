@@ -6,3 +6,12 @@
 .clearfix {
 	clear: both;
 }
+
+/* override collapsible icons as jqm 1.1 doesn't allow this function */
+
+
+.ui-collapsible.ui-collapsible-collapsed .ui-collapsible-heading .ui-icon-plus,
+.ui-icon-arrow-u { background-position: -216px 0; }
+.ui-collapsible .ui-collapsible-heading .ui-icon-minus,
+.ui-icon-arrow-d { background-position: -180px 0; }
+
