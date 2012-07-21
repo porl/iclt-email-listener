@@ -40,7 +40,7 @@ class __TwigTemplate_b46c104cecb2bbdf1eee04e5995772dd extends Twig_Template
 \t</div><!-- /header -->
 
 
-\t<div data-role=\"collapsible-set\">
+\t<div data-role=\"collapsible-set\" id=\"collapsibles\">
 
 \t\t<div id=\"fieldTechCollapsible\" data-role=\"collapsible\" data-collapsed=\"false\" data-iconpos=\"right\">
 \t\t\t<h3>Field Technician</h3>

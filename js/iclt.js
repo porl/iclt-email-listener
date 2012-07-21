@@ -15,10 +15,15 @@ $(function() {
     });
 	
 
+	//disable all but first collapsible
+	$('#collapsibles').children(':not(:first)').addClass('ui-disabled');
+
 	//on radio selection, close current container and change header to match then open next section
 	
 	$('.sectionOption').click(radioClicked);
 
+	//register fieldTech clicker
+	$('#fieldTechList').find('input').click(fieldTechClicked);
 
 	function radioClicked() {
 		//get label text
@@ -37,6 +42,11 @@ $(function() {
 		
 		//open next section
 		sectionBlock.next().trigger('expand');
+	}
+
+	function fieldTechClicked() {
+		//enable types collapsible
+		$('#ticketTypeCollapsible').removeClass('ui-disabled');
 	}
 
 	function typeClicked() {
@@ -81,6 +91,9 @@ $(function() {
 		//register click events
 		serviceList.find('input').click(radioClicked);
 		serviceList.find('input').click(serviceClicked);
+
+		//enable services collapsible
+		$('#serviceCollapsible').removeClass('ui-disabled');
 
 		//if selectedService exists in new list, 'click' it.
 		if (selectedServiceId) {
@@ -144,6 +157,9 @@ $(function() {
 		//register click events
 		categoryList.find('input').click(radioClicked);
 		categoryList.find('input').click(categoryClicked);
+		
+		//enable categories collapsible
+		$('#categoryCollapsible').removeClass('ui-disabled');
 
 		//if selectedService exists in new list, 'click' it.
 		if (selectedCategoryId) {
