@@ -69,6 +69,22 @@
 {% endfor %}
 			</fieldset>
 		</div><!-- /collapsible -->
+		
+		<div id="teamCollapsible" data-role="collapsible" data-iconpos="right">
+			<h3>Team</h3>
+			<fieldset data-role="controlgroup" id="categoryList">
+{% for team in data.teams %}
+{% set teamId = team|lower|replace({" ":""}) %}
+				<input type="radio" name="team" id="team_{{ teamId }}" value="{{ team }}" class="sectionOption teams">
+					<label for="team_{{ teamId }}">{{ team }}</label>
+{% endfor %}
+			</fieldset>
+		</div><!-- /collapsible -->		
+		
+		
+		
+		
+		
 	
 	</div><!-- /collapsible-set -->
 
