@@ -1,6 +1,7 @@
 #footer {
 	font-size: 0.75em;
 	text-align: center;
+	padding: 5px;
 }
 
 .clearfix {
@@ -15,13 +16,13 @@
 .ui-collapsible .ui-collapsible-heading .ui-icon-minus,
 .ui-icon-arrow-d { background-position: -180px 0; }
 
-            .ui-collapsible-set {
-                max-width: 900px !important;
-                margin: 10px auto !important;
-                position: relative !important;
-            }
+.ui-collapsible-set {
+	max-width: 900px !important;
+	margin: 10px auto !important;
+	position: relative !important;
+}
 
-            .ui-collapsible-content {
-            	border: solid 1px #ccc;
-            	border-top: none;
-            }
+.ui-collapsible-content {
+	border: solid 1px #ccc;
+	border-top: none;
+}
