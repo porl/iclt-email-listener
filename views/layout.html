@@ -72,7 +72,7 @@
 		
 		<div id="teamCollapsible" data-role="collapsible" data-iconpos="right">
 			<h3>Team</h3>
-			<fieldset data-role="controlgroup" id="categoryList">
+			<fieldset data-role="controlgroup" id="teamList">
 {% for team in data.teams %}
 {% set teamId = team|lower|replace({" ":""}) %}
 				<input type="radio" name="team" id="team_{{ teamId }}" value="{{ team }}" class="sectionOption teams">

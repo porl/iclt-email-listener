@@ -57,12 +57,12 @@ function radioClicked() {
 	sectionBlock.trigger('collapse');
 
 	// open next section
+	sectionBlock.next().removeClass('ui-disabled');
 	sectionBlock.next().trigger('expand');
 }
 
 function fieldTechClicked() {
-	// enable types collapsible
-	$('#ticketTypeCollapsible').removeClass('ui-disabled');
+
 }
 
 function typeClicked() {
@@ -117,9 +117,6 @@ function typeClicked() {
 	// register click events
 	serviceList.find('input').click(radioClicked);
 	serviceList.find('input').click(serviceClicked);
-
-	// enable services collapsible
-	$('#serviceCollapsible').removeClass('ui-disabled');
 
 	// if selectedService exists in new list, 'click' it.
 	if (selectedServiceId) {
@@ -194,8 +191,7 @@ function serviceClicked() {
 	categoryList.find('input').click(radioClicked);
 	categoryList.find('input').click(categoryClicked);
 
-	// enable categories collapsible
-	$('#categoryCollapsible').removeClass('ui-disabled');
+	
 
 	// if selectedService exists in new list, 'click' it.
 	if (selectedCategoryId) {
