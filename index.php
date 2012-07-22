@@ -19,4 +19,4 @@ $twigVars["data"] = $data;
 
 
 
-echo $twig->render("layout.html", $twigVars);
+echo $twig->render("layout.html.twig", $twigVars);
