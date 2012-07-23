@@ -31,12 +31,12 @@ function iclt_init() {
 
 	// on ticket type selection, reload results for services
 
-	$('.types').click(typeClicked);
+	$('.type').click(typeClicked);
 
 	// on service selection, reload results for categories (filter by ticket
 	// type)
 
-	$('.services').click(serviceClicked);
+	$('.service').click(serviceClicked);
 
 }
 
@@ -44,15 +44,18 @@ function radioClicked() {
 	// get label text
 	var labelText = $(this).siblings('label').find('.ui-btn-text').text()
 
-	// find section header
-	var sectionBlock = $(this).parents('.ui-collapsible')
-	var sectionHeader = sectionBlock.find('h3').find('.ui-btn-text')
-	var sectionHeaderStatus = sectionHeader
-			.find('.ui-collapsible-heading-status');
-
 	// modify section header (and put back 'tooltip')
-	sectionHeader.text(labelText).append(sectionHeaderStatus);
+	if (labelText != "") {
+		// find section header
+		var sectionBlock = $(this).parents('.ui-collapsible')
+		var sectionHeader = sectionBlock.find('h3').find('.ui-btn-text')
+		var sectionHeaderStatus = sectionHeader
+				.find('.ui-collapsible-heading-status');
 
+
+		sectionHeader.text(labelText).append(sectionHeaderStatus);
+	}
+	
 	// collapse this section
 	sectionBlock.trigger('collapse');
 
@@ -105,7 +108,7 @@ function typeClicked() {
 							+ serviceId
 							+ '" value="'
 							+ serviceName
-							+ '" class="sectionOption services"> \
+							+ '" class="sectionOption service"> \
 					<label for="service_'
 							+ serviceId + '">' + serviceName + '</label>');
 		}
@@ -169,7 +172,7 @@ function serviceClicked() {
 									+ categoryId
 									+ '" value="'
 									+ categoryName
-									+ '" class="sectionOption categories"> \
+									+ '" class="sectionOption category"> \
 							<label for="category_'
 									+ categoryId
 									+ '">'
