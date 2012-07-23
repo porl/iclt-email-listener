@@ -84,18 +84,35 @@
 		<div id="descCollapsible" data-role="collapsible" data-iconpos="right">
 			<h3>Description</h3>
 			<fieldset id="descriptionFields">
-			<div data-role="fieldcontain">
 			<label for="title">Title</label>
 			<input type="text" name="title" id="title" value="" class="description">
-			</div>
-			<div data-role="fieldcontain">
 				<label for="description">Description</label>
 				<textarea name="description" id="description"></textarea>
-			</div>
 			</fieldset>
 		</div><!-- /collapsible -->		
 		
-		
+		<div id="resolutionCollapsible" data-role="collapsible" data-iconpos="right">
+			<h3>Resolution (Optional)</h3>
+			<p>These fields are optional, however filling in the Resolution field requires the
+				selection of a Cause (and vice versa).</p>
+			<fieldset id="resolutionFields">
+
+				<div data-role="fieldcontain">
+					<label for="resolution">Resolution</label>
+					<textarea name="resolution" id="resolution"></textarea>
+				</div>
+				<div id="resolutionCollapsible" data-role="collapsible" data-iconpos="right">
+					<h3>Cause</h3>
+				<fieldset data-role="controlgroup" id="causeList">
+{% for cause in data.causes %}
+{% set causeId = cause|lower|replace({" ":""}) %}
+					<input type="radio" name="cause" id="cause_{{ causeId }}" value="{{ cause }}" class="sectionOption cause">
+						<label for="cause_{{ causeId }}">{{ cause }}</label>
+{% endfor %}
+				</fieldset>
+				</div>
+			</fieldset>
+		</div><!-- /collapsible -->			
 	
 	</div><!-- /collapsible-set -->
 
