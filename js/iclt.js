@@ -18,9 +18,6 @@ function iclt_init() {
 	// disable all but first collapsible
 	$('#collapsibles').children(':not(:first)').addClass('ui-disabled');
 	
-	//remove rounded corners on bottom element due to bug in open/close
-	$('#collapsibles').children(':last').find('.ui-corner-bottom').removeClass('ui-corner-bottom');
-
 	// on radio selection, close current container and change header to match
 	// then open next section
 

@@ -26,3 +26,13 @@
 	border: solid 1px #ccc;
 	border-top: none;
 }
+
+
+/*remove rounded corners*/
+.ui-corner-top {
+	border-radius: 0;
+}
+
+.ui-corner-bottom {
+	border-radius: 0;
+}
