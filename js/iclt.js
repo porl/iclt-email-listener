@@ -17,6 +17,7 @@ function iclt_init() {
 
 	// disable all but first collapsible
 	$('#collapsibles').children(':not(:first)').addClass('ui-disabled');
+	$('#submitArea').addClass('ui-disabled');
 	
 	// on radio selection, close current container and change header to match
 	// then open next section
@@ -34,7 +35,12 @@ function iclt_init() {
 	// type)
 
 	$('.service').click(serviceClicked);
+	
+	//register events for input in description fields
+	$('.descriptionField').keyup(descriptionEntered);
 
+	//register submit button press
+	$('#submit').click(submitClicked);
 }
 
 function radioClicked() {
@@ -201,6 +207,26 @@ function serviceClicked() {
 }
 
 function categoryClicked() {
+}
+
+function descriptionEntered() {
+	//if all description fields are populated enable optional field collapsible
+	var populated = true;
+	$('.descriptionField').each(function() {
+		if (!this.value) populated = false;
+	});
+	
+	if (populated) {
+		$('#optionalCollapsible').removeClass('ui-disabled');
+		$('#submitArea').removeClass('ui-disabled');
+	} else {
+		$('#optionalCollapsible').addClass('ui-disabled');
+		$('#submitArea').addClass('ui-disabled');
+	}
+}
+
+function submitClicked() {
+	alert("er... stuff should happen now.");
 }
 
 // go!
