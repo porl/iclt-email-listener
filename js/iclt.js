@@ -45,13 +45,14 @@ function iclt_init() {
 
 function radioClicked() {
 	// get label text
-	var labelText = $(this).siblings('label').find('.ui-btn-text').text()
+	var labelText = $(this).siblings('label').find('.ui-btn-text').text();
 
 	// modify section header (and put back 'tooltip')
+	var sectionBlock = {};
 	if (labelText != "") {
 		// find section header
-		var sectionBlock = $(this).parents('.ui-collapsible')
-		var sectionHeader = sectionBlock.find('h3').find('.ui-btn-text')
+		sectionBlock = $(this).parents('.ui-collapsible');
+		var sectionHeader = sectionBlock.find('h3').find('.ui-btn-text');
 		var sectionHeaderStatus = sectionHeader
 				.find('.ui-collapsible-heading-status');
 
@@ -83,7 +84,7 @@ function typeClicked() {
 	// reset services and categories labels
 	// find service section header
 	var sectionHeader = $('#serviceCollapsible').find('h3')
-			.find('.ui-btn-text')
+			.find('.ui-btn-text');
 	var sectionHeaderStatus = sectionHeader
 			.find('.ui-collapsible-heading-status');
 	// modify section header (and put back 'tooltip')
@@ -91,7 +92,7 @@ function typeClicked() {
 
 	// find service section header
 	var sectionHeader = $('#categoryCollapsible').find('h3').find(
-			'.ui-btn-text')
+			'.ui-btn-text');
 	var sectionHeaderStatus = sectionHeader
 			.find('.ui-collapsible-heading-status');
 	// modify section header (and put back 'tooltip')
@@ -151,7 +152,7 @@ function serviceClicked() {
 	// reset categories labels
 	// find category section header
 	var sectionHeader = $('#categoryCollapsible').find('h3').find(
-			'.ui-btn-text')
+			'.ui-btn-text');
 	var sectionHeaderStatus = sectionHeader
 			.find('.ui-collapsible-heading-status');
 	// modify section header (and put back 'tooltip')
@@ -231,5 +232,5 @@ function submitClicked() {
 
 // go!
 $(function() {
-	iclt_init()
+	iclt_init();
 });
