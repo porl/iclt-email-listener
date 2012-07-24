@@ -82,7 +82,9 @@
 		
 		
 		<div id="descCollapsible" data-role="collapsible" data-iconpos="right">
-			<h3>Description</h3>
+			<h3>Description</h3><fieldset id="descriptionFields">
+			<label for="customer">Customer</label>
+			<input type="text" name="customer" id="customer" value="" class="description">
 			<fieldset id="descriptionFields">
 			<label for="title">Title</label>
 			<input type="text" name="title" id="title" value="" class="description">
@@ -97,20 +99,21 @@
 				selection of a Cause (and vice versa).</p>
 			<fieldset id="resolutionFields">
 
-				<div data-role="fieldcontain">
-					<label for="resolution">Resolution</label>
-					<textarea name="resolution" id="resolution"></textarea>
-				</div>
+				<label for="resolution">Resolution</label>
+				<textarea name="resolution" id="resolution"></textarea>
 				<div id="resolutionCollapsible" data-role="collapsible" data-iconpos="right">
 					<h3>Cause</h3>
 				<fieldset data-role="controlgroup" id="causeList">
 {% for cause in data.causes %}
 {% set causeId = cause|lower|replace({" ":""}) %}
-					<input type="radio" name="cause" id="cause_{{ causeId }}" value="{{ cause }}" class="sectionOption cause">
+					<input type="radio" name="cause" id="cause_{{ causeId }}" value="{{ cause }}" class="cause">
 						<label for="cause_{{ causeId }}">{{ cause }}</label>
 {% endfor %}
+
 				</fieldset>
 				</div>
+				<label for="problem">Problem ID</label>
+			<input type="text" name="problem" id="problem" value="" class="resolution">
 			</fieldset>
 		</div><!-- /collapsible -->			
 	
