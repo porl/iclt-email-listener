@@ -25,9 +25,6 @@ function iclt_init() {
 
 	$('.sectionOption').click(radioClicked);
 
-	// register fieldTech clicker
-	$('#fieldTechList').find('input').click(fieldTechClicked);
-
 	// on ticket type selection, reload results for services
 
 	$('.type').click(typeClicked);
@@ -39,7 +36,9 @@ function iclt_init() {
 	
 	//register events for input in text fields
 	$('.descriptionField').keyup(descriptionEntered);
-	$('.resolutionField').keyup(resolutionEntered);
+	$('#resolution').keyup(resolutionEntered);
+	
+	$('.cause').click(causeClicked);
 
 }
 
@@ -66,10 +65,6 @@ function radioClicked() {
 	// open next section
 	sectionBlock.next().removeClass('ui-disabled');
 	sectionBlock.next().trigger('expand');
-}
-
-function fieldTechClicked() {
-
 }
 
 function typeClicked() {
@@ -228,15 +223,44 @@ function descriptionEntered() {
 
 function resolutionEntered() {
 	//if resolution field is populated enable cause field collapsible
-	var populated = false;
 	if ($('#resolutionField').value !== "") {
 		$('#causeCollapsible').removeClass('ui-disabled');
-		if ($('radio[name:cause]'))//////////////////////////////////////////////
-		$('#nextArea').removeClass('ui-disabled');
+		//if cause is already selected then enable next
+		if ($('input[name:cause]:checked', '#causeList').val()) {
+			$('#nextArea').removeClass('ui-disabled');
+		} else {
+			$('#nextArea').addClass('ui-disabled');
+		}
+		
 	} else {
-		$('#optionalCollapsible').addClass('ui-disabled');
-		$('#nextArea').addClass('ui-disabled');
+		$('#causeCollapsible').addClass('ui-disabled');
+		$('#nextArea').removeClass('ui-disabled');
 	}
+}
+
+function causeClicked() {
+	// get label text
+	var labelText = $(this).siblings('label').find('.ui-btn-text').text();
+
+	// modify section header (and put back 'tooltip')
+	var sectionBlock = {};
+	if (labelText !== "") {
+		// find section header
+		sectionBlock = $(this).parents('.ui-collapsible');
+		var sectionHeader = sectionBlock.find('h3').find('.ui-btn-text');
+		var sectionHeaderStatus = sectionHeader
+				.find('.ui-collapsible-heading-status');
+
+
+		sectionHeader.text(labelText).append(sectionHeaderStatus);
+	}
+	
+	// collapse this section
+	sectionBlock.trigger('collapse');
+
+	// enable next button
+	$('#nextArea').removeClass('ui-disabled');
+
 }
 
 // go!
