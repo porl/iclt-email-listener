@@ -17,7 +17,8 @@ function iclt_init() {
 
 	// disable all but first collapsible
 	$('#collapsibles').children(':not(:first)').addClass('ui-disabled');
-	$('#submitArea').addClass('ui-disabled');
+	$('#nextArea').addClass('ui-disabled');
+	$('#causeCollapsible').addClass('ui-disabled');
 	
 	// on radio selection, close current container and change header to match
 	// then open next section
@@ -36,11 +37,10 @@ function iclt_init() {
 
 	$('.service').click(serviceClicked);
 	
-	//register events for input in description fields
+	//register events for input in text fields
 	$('.descriptionField').keyup(descriptionEntered);
+	$('.resolutionField').keyup(resolutionEntered);
 
-	//register submit button press
-	$('#submit').click(submitClicked);
 }
 
 function radioClicked() {
@@ -49,7 +49,7 @@ function radioClicked() {
 
 	// modify section header (and put back 'tooltip')
 	var sectionBlock = {};
-	if (labelText != "") {
+	if (labelText !== "") {
 		// find section header
 		sectionBlock = $(this).parents('.ui-collapsible');
 		var sectionHeader = sectionBlock.find('h3').find('.ui-btn-text');
@@ -91,9 +91,9 @@ function typeClicked() {
 	sectionHeader.text("Service").append(sectionHeaderStatus);
 
 	// find service section header
-	var sectionHeader = $('#categoryCollapsible').find('h3').find(
+	sectionHeader = $('#categoryCollapsible').find('h3').find(
 			'.ui-btn-text');
-	var sectionHeaderStatus = sectionHeader
+	sectionHeaderStatus = sectionHeader
 			.find('.ui-collapsible-heading-status');
 	// modify section header (and put back 'tooltip')
 	sectionHeader.text("Category").append(sectionHeaderStatus);
@@ -102,19 +102,19 @@ function typeClicked() {
 	var serviceList = $('#serviceList .ui-controlgroup-controls');
 	serviceList.children().remove();
 
-	for (serviceKey in iclt.data['services']) {
-		var service = iclt.data['services'][serviceKey];
-		if (service[serviceType] == true) {
-			serviceName = service['name'];
+	for (var serviceKey in iclt.data.services) {
+		var service = iclt.data.services[serviceKey];
+		if (service[serviceType] === true) {
+			serviceName = service.name;
 			serviceId = serviceName.toLowerCase().replace(/ /g, "");
 			serviceList
-					.append('<input type="radio" name="service" id="service_'
-							+ serviceId
-							+ '" value="'
-							+ serviceName
-							+ '" class="sectionOption service"> \
-					<label for="service_'
-							+ serviceId + '">' + serviceName + '</label>');
+					.append('<input type="radio" name="service" id="service_' +
+							serviceId +
+							'" value="' +
+							serviceName +
+							'" class="sectionOption service">' +
+					'<label for="service_' +
+							serviceId + '">' + serviceName + '</label>');
 		}
 	}
 
@@ -162,26 +162,26 @@ function serviceClicked() {
 	var categoryList = $('#categoryList .ui-controlgroup-controls');
 	categoryList.children().remove();
 
-	for (serviceKey in iclt.data['services']) {
-		var service = iclt.data['services'][serviceKey];
+	for (var serviceKey in iclt.data.services) {
+		var service = iclt.data.services[serviceKey];
 		if (service.name == serviceName) {
 
-			for (categoryKey in service.categories) {
+			for (var categoryKey in service.categories) {
 				var category = service.categories[categoryKey];
-				if (category[serviceTypeId] == true) {
-					categoryName = category['name'];
+				if (category[serviceTypeId] === true) {
+					categoryName = category.name;
 					categoryId = categoryName.toLowerCase().replace(/ /g, "");
 					categoryList
-							.append('<input type="radio" name="category" id="category_'
-									+ categoryId
-									+ '" value="'
-									+ categoryName
-									+ '" class="sectionOption category"> \
-							<label for="category_'
-									+ categoryId
-									+ '">'
-									+ categoryName
-									+ '</label>');
+							.append('<input type="radio" name="category" id="category_' +
+									categoryId +
+									'" value="' +
+									categoryName +
+									'" class="sectionOption category">' +
+							'<label for="category_' +
+									categoryId +
+									'">' +
+									categoryName +
+									'</label>');
 				}
 
 			}
@@ -219,15 +219,24 @@ function descriptionEntered() {
 	
 	if (populated) {
 		$('#optionalCollapsible').removeClass('ui-disabled');
-		$('#submitArea').removeClass('ui-disabled');
+		$('#nextArea').removeClass('ui-disabled');
 	} else {
 		$('#optionalCollapsible').addClass('ui-disabled');
-		$('#submitArea').addClass('ui-disabled');
+		$('#nextArea').addClass('ui-disabled');
 	}
 }
 
-function submitClicked() {
-	alert("er... stuff should happen now.");
+function resolutionEntered() {
+	//if resolution field is populated enable cause field collapsible
+	var populated = false;
+	if ($('#resolutionField').value !== "") {
+		$('#causeCollapsible').removeClass('ui-disabled');
+		if ($('radio[name:cause]'))//////////////////////////////////////////////
+		$('#nextArea').removeClass('ui-disabled');
+	} else {
+		$('#optionalCollapsible').addClass('ui-disabled');
+		$('#nextArea').addClass('ui-disabled');
+	}
 }
 
 // go!

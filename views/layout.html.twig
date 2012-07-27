@@ -14,9 +14,9 @@
 
 </head>
 <body>
-<div id="page" data-role="page" data-theme="c" data-content-theme="c">
+<div id="pageOne" data-role="page" data-theme="c" data-content-theme="c">
 
-	<div data-role="header">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false" data-id="header">
 		<h1>ICLT Email Listener</h1>
 	</div><!-- /header -->
 
@@ -99,7 +99,7 @@
 				<h3>Resolution</h3>
 				<label for="resolution">Resolution</label>
 				<textarea name="resolution" id="resolution"></textarea>
-				<div id="resolutionCollapsible" data-role="collapsible" data-iconpos="right">
+				<div id="causeCollapsible" data-role="collapsible" data-iconpos="right">
 					<h3>Cause</h3>
 				<fieldset data-role="controlgroup" id="causeList">
 {% for cause in data.causes %}
@@ -117,11 +117,20 @@
 		</div><!-- /collapsible -->			
 	
 	</div><!-- /collapsible-set -->
-	<div id="submitArea">
-	<input type="button" value="Submit" id="submit" name="submit"></input>
+	<div id="nextArea">
+		<a href="#pageTwo" data-role="button" data-transition="slide">Next</a>
 	</div>
 
-</div><!-- /page -->
+</div><!-- /pageOne -->
 
+<div id="pageTwo" data-role="page" data-theme="c" data-content-theme="c">
+	<div data-role="header" data-position="fixed" data-tap-toggle="false" data-id="header">
+		<h1>ICLT Email Listener</h1>
+	</div><!-- /header -->
+	
+	<div>So... about that stuff you entered...
+	</div>
+
+</div>
 </body>
 </html>
