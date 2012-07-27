@@ -246,7 +246,7 @@ function causeClicked() {
 	var sectionBlock = {};
 	if (labelText !== "") {
 		// find section header
-		sectionBlock = $(this).parents('.ui-collapsible');
+		sectionBlock = $('#causeCollapsible');
 		var sectionHeader = sectionBlock.find('h3').find('.ui-btn-text');
 		var sectionHeaderStatus = sectionHeader
 				.find('.ui-collapsible-heading-status');
