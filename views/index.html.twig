@@ -1,0 +1,101 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+<div id="pageOne" data-role="page" data-theme="c" data-content-theme="c">
+
+	<div data-role="header" data-position="fixed" data-tap-toggle="false" data-id="header">
+		<h1>ICLT Email Listener</h1>
+	</div><!-- /header -->
+
+<form action="{{ url }}" method="post">
+	<div data-role="collapsible-set" id="collapsibles">
+
+		<div id="fieldTechCollapsible" data-role="collapsible" data-collapsed="false" data-iconpos="right">
+			<h3>Field Technician</h3>
+			<fieldset data-role="controlgroup" id="fieldTechList">
+{% for fieldTech in data.fieldTechs %}
+{% set fieldTechId = fieldTech.id|replace({" ":"."}) %} {# html element id can't have '.' in name or jquery selectors fail #}
+				<input type="radio" name="fieldTech" id="fieldTech_{{ fieldTechId }}" value="{{ fieldTech.id }}" class="sectionOption fieldTech">
+					<label for="fieldTech_{{ fieldTechId }}">{{ fieldTech.name }}</label>
+{% endfor %}
+			</fieldset>
+		</div><!-- /collapsible -->
+	
+		<div id="ticketTypeCollapsible" data-role="collapsible" data-iconpos="right">
+			<h3>Ticket Type</h3>
+			<fieldset data-role="controlgroup" id="ticketTypeList">
+{% for type in data.types %}
+				<input type="radio" name="ticketType" id="type{{ type }}" value="{{ type }}" class="sectionOption type">
+					<label for="type{{ type }}">{{ type }}</label>
+{% endfor %}
+			</fieldset>
+		</div><!-- /collapsible -->
+	
+		<div id="serviceCollapsible" data-role="collapsible" data-iconpos="right">
+			<h3>Service</h3>
+			<fieldset data-role="controlgroup" id="serviceList">
+{% for service in data.services %}
+{% set serviceId = service.name|lower|replace({" ":"."}) %}
+				<input type="radio" name="service" id="service_{{ serviceId }}" value="{{ service.name }}" class="sectionOption service">
+					<label for="service_{{ serviceId }}">{{ service.name }}</label>
+{% endfor %}
+			</fieldset>
+		</div><!-- /collapsible -->
+	
+		<div id="categoryCollapsible" data-role="collapsible" data-iconpos="right">
+			<h3>Category</h3>
+			<fieldset data-role="controlgroup" id="categoryList">
+{% for service in data.services %}
+{% set serviceId = service.name|lower|replace({" ":""}) %}
+{% for category in service.categories|sort %}
+{% set categoryId = category.name|lower|replace({" ":""}) %}
+				<input type="radio" name="category" id="category_{{ serviceId }}_{{ categoryId }}" value="{{ category.name }}" class="sectionOption category">
+					<label for="category_{{ serviceId }}_{{ categoryId }}">{{ service.name }} - {{ category.name }}</label>
+{% endfor %}
+{% endfor %}
+			</fieldset>
+		</div><!-- /collapsible -->
+		
+		<div id="descriptionCollapsible" data-role="collapsible" data-iconpos="right">
+			<h3>Description</h3><fieldset id="descriptionFields">
+			<label for="customer">Customer</label>
+			<input type="text" name="customer" id="customer" value="" class="descriptionField">
+			<fieldset id="descriptionFields">
+			<label for="title">Title</label>
+			<input type="text" name="title" id="title" value="" class="descriptionField">
+				<label for="description">Description</label>
+				<textarea name="description" id="description" class="descriptionField"></textarea>
+			</fieldset>
+		</div><!-- /collapsible -->		
+		
+		<div id="optionalCollapsible" data-role="collapsible" data-iconpos="right">
+			<h3>Optional fields</h3>
+			<div id="resolutionCollapsible" data-role="collapsible" data-iconpos="right">
+				<h3>Resolution</h3>
+				<label for="resolution">Resolution</label>
+				<textarea name="resolution" id="resolution"></textarea>
+				<div id="causeCollapsible" data-role="collapsible" data-iconpos="right">
+					<h3>Cause</h3>
+				<fieldset data-role="controlgroup" id="causeList">
+{% for cause in data.causes %}
+{% set causeId = cause|lower|replace({" ":""}) %}
+					<input type="radio" name="cause" id="cause_{{ causeId }}" value="{{ cause }}" class="cause">
+						<label for="cause_{{ causeId }}">{{ cause }}</label>
+{% endfor %}
+
+				</fieldset>
+				</div>
+			</div>
+				<label for="problem">Problem ID</label>
+			<input type="text" name="problem" id="problem" value="" class="optional">
+
+		</div><!-- /collapsible -->			
+	
+	</div><!-- /collapsible-set -->
+	<div id="nextArea">
+		<button type="submit" data-transition="slide">Next</button>
+		<a href="#pageTwo" data-role="button" data-transition="slide">Next</a>
+	</div>
+</form>
+</div><!-- /page -->
+{% endblock %}
