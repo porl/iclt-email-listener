@@ -16,7 +16,7 @@
 .ui-collapsible .ui-collapsible-heading .ui-icon-minus,
 .ui-icon-arrow-d { background-position: -180px 0; }
 
-.ui-collapsible-set, #nextArea {
+.pageContents {
 	max-width: 900px !important;
 	margin: 10px auto !important;
 	position: relative !important;

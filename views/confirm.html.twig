@@ -1,0 +1,45 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+<div id="pageTwo" data-role="page" data-theme="c" data-content-theme="c">
+
+	<div data-role="header" data-position="fixed" data-tap-toggle="false" data-id="header">
+		<h1>ICLT Email Listener</h1>
+	</div><!-- /header -->
+	<div class="pageContents">
+	<h2>Ticket Submission</h2>
+	<p>You are about to submit a ticket with the following information:</p>
+	<table>
+		<tbody>
+			<tr><th>Field Technician</th><td>{{ post.fieldTech }}</td></tr>
+			<tr><th>Ticket Type</th><td>{{ post.ticketType }}</td></tr>
+			<tr><th>Service</th><td>{{ post.service }}</td></tr>
+			<tr><th>Category</th><td>{{ post.category }}</td></tr>
+			<tr><th>Customer</th><td>{{ post.customer }}</td></tr>
+			<tr><th>Title</th><td>{{ post.title }}</td></tr>
+			<tr><th>Description</th><td>{{ post.description }}</td></tr>
+{% if post.resolution != empty %}
+			<tr><th>Resolution</th><td>{{ post.resolution }}</td></tr>
+			<tr><th>Cause</th><td>{{ post.cause }}</td></tr>
+{% endif %}
+{% if post.problem != empty %}
+			<tr><th>Linked Problem ID</th><td>{{ post.problem }}</td></tr>
+{% endif %}
+		</tbody>
+	</table>
+	<form action="submit.php" method="post">
+		<input type="hidden" name="fieldTech" value="{{ post.fieldTech }}">
+		<input type="hidden" name="ticketType" value="{{ post.ticketType }}">
+		<input type="hidden" name="service" value="{{ post.service }}">
+		<input type="hidden" name="category" value="{{ post.category }}">
+		<input type="hidden" name="customer" value="{{ post.customer }}">
+		<input type="hidden" name="title" value="{{ post.title }}">
+		<input type="hidden" name="description" value="{{ post.description }}">
+		<input type="hidden" name="resolution" value="{{ post.resolution }}">
+		<input type="hidden" name="cause" value="{{ post.cause }}">
+		<input type="hidden" name="problem" value="{{ post.problem }}">
+		<a href="{{ root }}" data-role="button" data-rel="back">Back</a><button type="submit" data-transition="slide">Next</button>
+	</form>
+	</div>
+</div><!-- /page -->
+{% endblock %}

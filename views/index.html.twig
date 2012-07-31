@@ -6,8 +6,8 @@
 	<div data-role="header" data-position="fixed" data-tap-toggle="false" data-id="header">
 		<h1>ICLT Email Listener</h1>
 	</div><!-- /header -->
-
-<form action="{{ url }}" method="post">
+	<div class="pageContents">
+<form action="{{ root }}/confirm.php" method="post">
 	<div data-role="collapsible-set" id="collapsibles">
 
 		<div id="fieldTechCollapsible" data-role="collapsible" data-collapsed="false" data-iconpos="right">
@@ -58,9 +58,9 @@
 		
 		<div id="descriptionCollapsible" data-role="collapsible" data-iconpos="right">
 			<h3>Description</h3><fieldset id="descriptionFields">
+			<fieldset id="descriptionFields">
 			<label for="customer">Customer</label>
 			<input type="text" name="customer" id="customer" value="" class="descriptionField">
-			<fieldset id="descriptionFields">
 			<label for="title">Title</label>
 			<input type="text" name="title" id="title" value="" class="descriptionField">
 				<label for="description">Description</label>
@@ -96,5 +96,6 @@
 		<button type="submit" data-transition="slide">Next</button>
 	</div>
 </form>
+</div>
 </div><!-- /page -->
 {% endblock %}
