@@ -223,6 +223,7 @@ function descriptionEntered() {
 function titleEntered() {
 	if (!iclt.descriptionEntered) {
 		$('#description').text(this.value);
+		descriptionFieldEntered(); //call description field event handler manually
 	}
 
 }
