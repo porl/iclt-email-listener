@@ -27,7 +27,7 @@
 {% endif %}
 		</tbody>
 	</table>
-	<form action="submit.php" method="post">
+	<form action="{{ root }}submit.php" method="post">
 		<input type="hidden" name="fieldTech" value="{{ post.fieldTech }}">
 		<input type="hidden" name="ticketType" value="{{ post.ticketType }}">
 		<input type="hidden" name="service" value="{{ post.service }}">

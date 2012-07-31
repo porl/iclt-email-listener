@@ -22,7 +22,7 @@ function rest_post() {
 	require_once("inc/twig.php");
 	require_once("inc/data.php");
 	
-	$twigVars["root"] = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+$twigVars["root"] = rtrim("http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']), '/') . DIRECTORY_SEPARATOR;
 	
 	$twigVars["post"] = $_POST;
 	echo $twig->render("submit.html.twig", $twigVars);
