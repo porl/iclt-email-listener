@@ -15,6 +15,9 @@ function iclt_init() {
 		}
 	});
 
+	//reset description tracking boolean
+	iclt.descriptionEntered = false;
+	
 	// disable all but first collapsible
 	$('#collapsibles').children(':not(:first)').addClass('ui-disabled');
 	$('#nextArea').addClass('ui-disabled');
@@ -35,8 +38,11 @@ function iclt_init() {
 	$('.service').click(serviceClicked);
 	
 	//register events for input in text fields
-	$('.descriptionField').keyup(descriptionEntered);
+	$('.descriptionField').keyup(descriptionFieldEntered);
 	$('#resolution').keyup(resolutionEntered);
+	
+	$('#description').keyup(descriptionEntered);
+	$('#title').keyup(titleEntered);
 	
 	$('.cause').click(causeClicked);
 
@@ -205,7 +211,23 @@ function serviceClicked() {
 function categoryClicked() {
 }
 
+
 function descriptionEntered() {
+	if (this.value === "") {
+		iclt.descriptionEntered = false;
+	} else {
+		iclt.descriptionEntered = true;
+	}
+}
+
+function titleEntered() {
+	if (!iclt.descriptionEntered) {
+		$('#description').text(this.value);
+	}
+
+}
+
+function descriptionFieldEntered() {
 	//if all description fields are populated enable optional field collapsible
 	var populated = true;
 	$('.descriptionField').each(function() {
