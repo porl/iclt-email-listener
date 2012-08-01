@@ -9,22 +9,6 @@
 	<div class="pageContents">
 	<h2>Ticket Submitted</h2>
 	<p>Now bask in the glory of a job well done.</p>
-	
-	<pre>
-from: {{ post.fieldTech }}
-subject: "##ICLT Automatic Ticket Generation##"
-body:
-[Service]{{ post.service }}[/Service]
-[Type]{{ post.ticketType }}[/Type]
-[Category]{{ post.category }}[/Category]
-[Title]{{ post.title }}[/Title]
-[Description]{{ post.description }}[/Description]
-[Cause]{{ post.cause }}[/Cause]
-[Resolution]{{ post.resolution }}[/Resolution]
-[CustomerLogin]{{ post.customer }}[/CustomerLogin]
-[Team]Field Technicians[/Team]
-[Problem]{{ post.problem }}[/Problem]
-	</pre>
 
 	<a href="{{ root }}" data-role="button" data-ajax="false">Start Over</a>
 	</div>
