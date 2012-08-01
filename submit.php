@@ -44,7 +44,7 @@ function rest_post() {
 	->setCc($fieldTechEmail)
 	
 	// Set the To addresses with an associative array
-	->setTo('porl42@gmail.com')
+	->setTo('icltservicedesk@dbb.org.au')
 	
 	// Give it a body
 	->setBody($body)
