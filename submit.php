@@ -41,7 +41,7 @@ function rest_post() {
 	->setFrom($fieldTechEmail)
 	
 	//CC self
-	->setCc($fieldTechEmail)
+	//->setCc($fieldTechEmail)
 	
 	// Set the To addresses with an associative array
 	->setTo('icltservicedesk@dbb.org.au')
