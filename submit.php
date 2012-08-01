@@ -22,7 +22,7 @@ function rest_post() {
 	require_once("inc/twig.php");
 	require_once("inc/data.php");
 	
-	require_once("inc/Swift/swift_required.php");
+	require_once("inc/Swift/lib/swift_required.php");
 	
 	$twigVars["root"] = rtrim("http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']), '/') . DIRECTORY_SEPARATOR;
 	
