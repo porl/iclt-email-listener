@@ -51,7 +51,17 @@ function rest_post() {
 
 	;
 	
+	// Create the Transport
+	$transport = Swift_SendmailTransport::newInstance();
+	// Create the Mailer using the created Transport
+	$mailer = Swift_Mailer::newInstance($transport);
 	
 	
-	echo $twig->render("submit.html.twig", $twigVars);
+	if ($mailer->send($message)) {
+		echo $twig->render("submit.html.twig", $twigVars);
+	} else {
+		die('er.... something went really bad');
+	}
+	
+	
 }
