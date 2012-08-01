@@ -47,7 +47,7 @@ function rest_post() {
 	->setTo('porl42@gmail.com')
 	
 	// Give it a body
-	->setBody($body, 'text/plaintext')
+	->setBody($body)
 
 	;
 	
