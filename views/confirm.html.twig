@@ -38,7 +38,11 @@
 		<input type="hidden" name="resolution" value="{{ post.resolution }}">
 		<input type="hidden" name="cause" value="{{ post.cause }}">
 		<input type="hidden" name="problem" value="{{ post.problem }}">
-		<a href="{{ root }}" data-role="button" data-rel="back">Back</a><button type="submit" data-transition="slide">Next</button>
+		<div class="ui-grid-a">
+			<div class="ui-block-a"><a href="{{ root }}" data-role="button" data-rel="back">Back</a></div>
+			<div class="ui-block-b"><button type="submit" data-transition="slide">Next</button></div>
+		</div>
+		
 	</form>
 	</div>
 </div><!-- /page -->
